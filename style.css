@@ -30,7 +30,7 @@
   --tile-text-color: var(--color-tone-1);
   --key-text-color: var(--color-tone-1);
   --key-evaluated-text-color: var(--color-tone-1);
-  --key-bg: var(--color-tone-3);
+  --key-bg: rgba(255, 255, 255, 0.06);
   --key-bg-present: var(--color-present);
   --key-bg-correct: var(--color-correct);
   --key-bg-absent: var(--color-absent);

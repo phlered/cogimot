@@ -241,8 +241,12 @@
     }
 
     if (!isValidWord(guess, len)) {
-      showToast('Mot inconnu');
+      showToast('Mot inconnu', 3000);
       shakeCurrentRow();
+      setTimeout(() => {
+        game.currentGuess = '';
+        renderBoard();
+      }, 3000);
       return;
     }
 
@@ -444,7 +448,7 @@
     });
 
     const ng = settingsPanel.querySelector('#btn-new-game-settings');
-    if (ng) ng.addEventListener('click', () => newGame());
+    if (ng) ng.addEventListener('click', () => { newGame(); settingsPanel.classList.add('hidden'); });
   }
 
   function toggleSettings() {
