@@ -10,7 +10,6 @@
   const settingsPanel = document.getElementById('settings-panel');
 
   const btnSettings = document.getElementById('btn-settings');
-  const btnHelp = document.getElementById('btn-help');
 
   // ── Constants ─────────────────────────────────────────────────────
   const KEYBOARD_ROWS = [
@@ -360,8 +359,8 @@
     var attStr = game ? (game.maxAttempts === Infinity ? 'autant de tentatives que tu veux' : game.maxAttempts + ' tentatives') : '6 tentatives';
     const html = ''
       + '<h2>Comment jouer</h2>'
-      + '<p>Devine le mot en ' + attStr + '.</p>'
-      + '<p>Après chaque proposition, les lettres changent de couleur pour t\'indiquer à quel point tu es proche.</p>'
+      + '<p>Devine le mot en 6 ou 8 tentatives.</p>'
+      + '<p>Après chaque proposition, les lettres changent de couleur pour t\'indiquer à quel point tu es proche.     <strong>Exemples :</strong></p>'
       + '<div class="help-example">'
       + '<div class="help-row">'
       + '<div class="help-tile correct">s</div>'
@@ -370,7 +369,7 @@
       + '<div class="help-tile absent">u</div>'
       + '<div class="help-tile absent">t</div>'
       + '</div>'
-      + '<p style="text-align:left;margin-top:4px;"><strong>S</strong> est dans le mot et à la bonne place.</p>'
+      + '<p style="text-align:center;margin-top:4px;"><strong>S</strong> est dans le mot et à la bonne place.</p>'
       + '<div class="help-row" style="margin-top:12px;">'
       + '<div class="help-tile absent">p</div>'
       + '<div class="help-tile present">o</div>'
@@ -378,7 +377,7 @@
       + '<div class="help-tile absent">m</div>'
       + '<div class="help-tile absent">e</div>'
       + '</div>'
-      + '<p style="text-align:left;margin-top:4px;"><strong>O</strong> est dans le mot mais à la mauvaise place.</p>'
+      + '<p style="text-align:center;margin-top:4px;"><strong>O</strong> est dans le mot mais à la mauvaise place.</p>'
       + '<div class="help-row" style="margin-top:12px;">'
       + '<div class="help-tile absent">r</div>'
       + '<div class="help-tile absent">e</div>'
@@ -386,7 +385,7 @@
       + '<div class="help-tile absent">a</div>'
       + '<div class="help-tile absent">l</div>'
       + '</div>'
-      + '<p style="text-align:left;margin-top:4px;">Aucune de ces lettres n\'est dans le mot.</p>'
+      + '<p style="text-align:center;margin-top:4px;">Aucune de ces lettres n\'est dans le mot.</p>'
       + '</div>'
       + '<p>Un nouveau mot est tiré au sort à chaque partie.</p>'
       + '<button class="btn" id="btn-close-modal">C\'est parti !</button>';
@@ -488,7 +487,6 @@
     }
   });
 
-  btnHelp.addEventListener('click', showHelpModal);
   btnSettings.addEventListener('click', toggleSettings);
   document.getElementById('btn-reset').addEventListener('click', () => { newGame(); settingsPanel.classList.add('hidden'); });
 
@@ -499,5 +497,6 @@
   // ── Init ──────────────────────────────────────────────────────────
   loadSettings();
   newGame();
+  showHelpModal();
 
 })();

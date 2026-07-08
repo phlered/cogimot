@@ -493,6 +493,7 @@ header h1 {
 
 .help-row {
   display: flex;
+  justify-content: center;
   gap: 4px;
   margin: 4px 0;
 }
