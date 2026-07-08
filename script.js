@@ -360,7 +360,6 @@
     const html = ''
       + '<h2>Comment jouer</h2>'
       + '<p>Devine le mot en 6 ou 8 tentatives.</p>'
-      + '<p>Après chaque proposition, les lettres changent de couleur pour t\'indiquer à quel point tu es proche.     <strong>Exemples :</strong></p>'
       + '<div class="help-example">'
       + '<div class="help-row">'
       + '<div class="help-tile correct">s</div>'
