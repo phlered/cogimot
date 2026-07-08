@@ -158,7 +158,10 @@
   }
 
   // ── Keyboard rendering ────────────────────────────────────────────
+  const isDesktop = !('ontouchstart' in window) && navigator.maxTouchPoints === 0;
+
   function renderKeyboard() {
+    if (isDesktop) { keyboardEl.innerHTML = ''; return; }
     keyboardEl.innerHTML = '';
     const kc = game ? game.keyboardColors : {};
 
@@ -480,10 +483,12 @@
       e.preventDefault();
       handleKey('enter');
     } else if (/^[a-z]$/.test(key)) {
+      e.preventDefault();
       handleKey(key);
     } else {
       const base = key.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       if (/^[a-z]$/.test(base)) {
+        e.preventDefault();
         handleKey(base);
       }
     }
@@ -491,6 +496,7 @@
 
   btnHelp.addEventListener('click', showHelpModal);
   btnSettings.addEventListener('click', toggleSettings);
+  document.getElementById('btn-reset').addEventListener('click', () => { newGame(); settingsPanel.classList.add('hidden'); });
 
   overlayEl.addEventListener('click', e => {
     if (e.target === overlayEl) hideModal();
