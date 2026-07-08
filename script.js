@@ -346,9 +346,7 @@
       + '<h2>Le mot à deviner était :</h2>'
       + '<div class="solution-word">' + game.solution + '</div>'
       + (won ? '<p style="margin-top:8px;">Bravo, trouvé en ' + attemptCount + ' tentative' + (attemptCount > 1 ? 's' : '') + ' !</p>' : '')
-      + '<button class="btn" id="btn-new-game">Nouvelle partie</button>'
-      + (won ? '<button class="btn btn-secondary" id="btn-share">Partager</button>' : '')
-      + '<button class="btn btn-secondary" id="btn-close-modal">Fermer</button>';
+      + '<button class="btn" id="btn-new-game">Nouvelle partie</button>';
 
     showModal(html);
 
@@ -356,10 +354,6 @@
       hideModal();
       newGame();
     });
-    document.getElementById('btn-close-modal').addEventListener('click', hideModal);
-    if (won) {
-      document.getElementById('btn-share').addEventListener('click', shareResult);
-    }
   }
 
   function showHelpModal() {
